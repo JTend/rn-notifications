@@ -24,7 +24,13 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "notif.apk"
+      "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleSignIn": {
+          "apiKey": "API_KEY_FROM_FIREBASE"
+        }
+      },
+      "package": "com.besser.movil"
     },
     "web": {
       "favicon": "./assets/favicon.png"

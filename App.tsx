@@ -8,28 +8,28 @@ import Clipboard from 'expo-clipboard';
 export default function App() {
 
   const [message, setMessage] = React.useState('undefined');
+  const [resp, setResponse] = React.useState('undefined');
   const [token, setToken] = React.useState('undefined');
 
   const pushNotificationsSetup = async () => {
     if(Constants.default.isDevice) {
       const currently = await Notifications.getPermissionsAsync();
-      console.log('1st:', currently);
       var response : Notifications.NotificationPermissionsStatus = currently;
-      setMessage('1st:' + currently.status);
-      if(!currently?.granted && currently?.canAskAgain) {
+      setMessage(JSON.stringify(currently));
+      if(!currently.granted && currently.canAskAgain) {
         var response = await Notifications.requestPermissionsAsync();
         const {status} = response;
         console.log('2nd:', response);
-        setMessage('2nd:' + status);
+        setResponse(JSON.stringify(response));
       }
       if(!response.granted) {
         console.log('3rd:', response);
         setMessage('3rd:' + response.status);
         return;
       }
-      const expoToken = (await Notifications.getExpoPushTokenAsync()).data;
+      const expoToken = await Notifications.getExpoPushTokenAsync();
       console.log(expoToken);
-      setToken(expoToken);
+      setToken(JSON.stringify(expoToken));
     }
     else console.log('This is not a phisical device');
     if (Platform.OS === 'android') {
@@ -50,7 +50,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Test with expo Push Notificaiton Tool</Text>
-      <Text>{message}</Text>
+      <Text>Start: {message}</Text>
+      <Text>Response:{resp}</Text>
       <Text>{token}</Text>
       <Button title="Copiar" color="tomato" onPress={() => Clipboard.setString(token)}/>
       <StatusBar style="auto" />

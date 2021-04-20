@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924915246522",
+    "project_id": "bessermovil",
+    "storage_bucket": "bessermovil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924915246522:android:6186cbb042d70700332983",
+        "android_client_info": {
+          "package_name": "com.besser.movil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924915246522-2rcj0jndn6bgiuqgdcbfbf76pdmm2usi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "API_KEY_FROM_FIREBASE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924915246522-2rcj0jndn6bgiuqgdcbfbf76pdmm2usi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
